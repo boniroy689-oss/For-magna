@@ -1,0 +1,98 @@
+// Hide Loader
+window.onload = () => {
+    setTimeout(() => {
+        document.getElementById("loader").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+        }, 1000);
+    }, 2200);
+};
+
+// Floating Hearts
+const hearts = document.getElementById("hearts");
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 30) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+    hearts.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 9000);
+}
+
+setInterval(createHeart, 250);
+
+// Typewriter
+const text =
+"You're not just my best friend, you're one of the best parts of my life. ❤️ Thank you for every smile, every laugh and every memory. Happy Friendship Day! 🌸";
+
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+setTimeout(typeWriter, 2600);
+
+// Photo Slider
+const slides = document.querySelectorAll(".slide");
+let current = 0;
+
+setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+}, 3000);
+
+// Popup
+const popup = document.getElementById("popup");
+
+document.getElementById("giftBtn").onclick = () => {
+    popup.style.display = "flex";
+    startConfetti();
+};
+
+document.getElementById("closeBtn").onclick = () => {
+    popup.style.display = "none";
+};
+
+// Simple Confetti
+function startConfetti() {
+
+    for (let j = 0; j < 150; j++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.innerHTML = ["🎉","✨","💖","🌸","🎊"][Math.floor(Math.random()*5)];
+
+        confetti.style.position = "fixed";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.top = "-20px";
+        confetti.style.fontSize = (18 + Math.random() * 18) + "px";
+        confetti.style.transition = "all 4s linear";
+        confetti.style.zIndex = "9999";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.style.top = "110vh";
+            confetti.style.transform =
+                "rotate(" + (Math.random()*720) + "deg)";
+        }, 50);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 4500);
+    }
+}
