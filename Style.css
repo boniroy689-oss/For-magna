@@ -228,3 +228,59 @@ top:0;
 left:0;
 pointer-events:none;
 }
+/* Music Button */
+
+#musicBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+padding:12px 20px;
+background:rgba(255,255,255,.2);
+color:white;
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.4);
+z-index:10000;
+}
+
+#musicBtn:hover{
+background:white;
+color:#ff2e63;
+}
+
+/* Cursor Glow */
+
+#cursorGlow{
+position:fixed;
+width:150px;
+height:150px;
+border-radius:50%;
+background:radial-gradient(circle,
+rgba(255,255,255,.35),
+transparent 70%);
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:1;
+}
+
+/* Twinkling Stars */
+
+.star{
+position:fixed;
+color:white;
+animation:twinkle 2s infinite;
+pointer-events:none;
+}
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:.2;
+transform:scale(.6);
+}
+
+50%{
+opacity:1;
+transform:scale(1.2);
+}
+
+}
