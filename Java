@@ -96,3 +96,59 @@ function startConfetti() {
         }, 4500);
     }
 }
+// Music Button
+
+const music=document.getElementById("bgMusic");
+const musicBtn=document.getElementById("musicBtn");
+
+musicBtn.onclick=()=>{
+
+if(music.paused){
+
+music.play();
+
+musicBtn.innerHTML="⏸ Pause Music";
+
+}else{
+
+music.pause();
+
+musicBtn.innerHTML="🎵 Play Music";
+
+}
+
+};
+
+// Mouse Glow
+
+const glow=document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+});
+
+// Stars
+
+for(let i=0;i<40;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.innerHTML="✨";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+star.style.fontSize=(8+Math.random()*12)+"px";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(star);
+
+}
